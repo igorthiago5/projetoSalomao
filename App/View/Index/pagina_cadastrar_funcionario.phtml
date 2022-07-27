@@ -1,0 +1,44 @@
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="caixa">
+					<form action="/cadastro_colaborador" method="post">
+						<div>
+							<label>Nome</label>
+							<input type="text" name="nome" class="form-control">
+						</div>
+						<div>
+							<label>Email</label>
+							<input type="email" name="email" class="form-control">
+						</div>
+						<div>
+							<label>Senha</label>
+							<input type="password" name="senha" class="form-control">
+						</div>
+						<div>
+							<label>Confirmar senha</label>
+							<input type="password"  class="form-control">
+						</div>
+						<div>
+							<label>Selecione o nível de acesso</label>
+							<select name="selecao_cargo" class="form-select" >
+								<option ></option>
+								<option value="1">Adminitrador</option>
+								<option value="2">Funcionario</option>
+							</select>
+							<div class="d-grid gap-2 mt-3">
+									<button class="btn btn-primary">
+										Salvar
+									</button>
+							</div>
+							<!-- <?php if($this->view->validar != false){?>
+							<small class="text-danger">Usuario já cadastrado ou campos incompletos </small>
+						<?php }?> -->
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

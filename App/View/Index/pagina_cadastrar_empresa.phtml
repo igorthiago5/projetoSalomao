@@ -1,0 +1,44 @@
+<section>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-12">
+				<div class="caixa">
+					<form action="/cadastro_empresa" method="post">
+						<div>
+							<label>Nome</label>
+							<input type="text" name="nome" class="form-control" id="nome">
+						</div>
+						<div>
+							<label>CNPJ</label>
+							<input type="text" name="cnpj" class="form-control" id="cnpj">
+						</div>
+						<div>
+							<label>Telefone</label>
+							<input type="tex"  class="form-control" name="telefone" id="telefone">
+						</div>
+						<div>
+							<label>Cep</label>
+							<input type="tex"  class="form-control" name="cep" id="cep">
+						</div>
+						<div>
+							<label>Bairro </label>
+							<input type="text" name="bairro" class="form-control" id="bairro">
+						</div>
+						<div>
+							<label>Rua</label>
+							<input type="tex"  class="form-control" name="rua" id="rua">
+						</div>
+						<div class="d-grid gap-2 mt-3">
+							<button type="submit" class="btn btn-primary"> 
+								Enviar
+							</button>
+						</div>
+						<?php if($this->view->erro_cadastro == 'cadastro'){?>
+							<div class="text-danger">Campos nulos </div>
+						<?php }?>
+						
+					</form>
+				</div>
+		</div>
+	</div>
+</section>

@@ -1,0 +1,63 @@
+
+<section >
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="caixa">
+					
+					<form action="/cadastrar_produto" method="post">
+						<div>
+							<label>Empresa</label>
+							<select class="form-select" name="empresa" id="selecaoEmpresa"
+							>
+								<?php 
+								
+								foreach ($this->view->empresa as $value) {	
+									
+								 ?>
+								<option value="<?= $value['id_empresa'] ?> "><?= $value['nome_emrpesa'] ?></option>
+								<!-- value será o id da emrpesa -->
+							<?php } ?>
+							</select>
+						</div>
+						<div>
+						
+						<div>
+							<label>Produtos</label>
+							<select class="form-select" name="produto">
+								<?php 
+								foreach ($this->view->tempero  as $value) {
+																	
+																	?>
+								<option value="<?= $value['id_tempero']?>"><?= $value['nome_tempero'] ?></option>
+							<?php }?>
+								<!-- value será o id do produto -->
+							</select>
+						</div>
+						<div>
+							<label>Quantidade</label>
+							<input type="number"  class="form-control" name="qtd" id="qtd"> 
+						</div>
+						<div>
+							<label>Vendedor</label>
+							<select class="form-select" name="usuario">
+								<?php foreach($this->view->usuario as $value){?>
+								<option value="<?= $value['id_usuario']	?>"><?= $value['nome_usuario']?></option>
+							<?php }?>
+								<!-- value será o id do funcionario -->
+							</select>
+							<div class="d-grid gap-2 mt-3">
+									<button class="btn btn-primary" >
+										Salvar
+									</button>
+							</div>
+						 <?php if($this->view->erro  == 'null'){?>
+							<small class="text-danger">Campos vazio</small>
+						<?php }?> 
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>''

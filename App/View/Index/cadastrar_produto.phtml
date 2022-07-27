@@ -1,0 +1,54 @@
+
+
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<h5 class="d-flex justify-content-center mt-5">Cadastro de produtos </h5>
+				<div class="caixa">
+					<form action="/cadastro_tempero" method="post">
+						<div>
+							<label>Nome</label>
+							<input type="text" name="nome" class="form-control">
+						</div>
+						<div>
+							<label>Quantia estoque</label>
+							<input type="number" name="qtd" class="form-control">
+						</div>
+						<div class="input-group mt-3">
+							<span class="input-group-text">Peso</span>
+							<input type="text" name="peso" class="form-control" placeholder="Ex:50 g">
+							<span class="input-group-text">,00</span>
+						</div>
+						<div class="input-group mt-3">
+							<span class="input-group-text">Valor</span>
+							<input type="text" name="valor" class="form-control" placeholder="Ex:8,90">
+							<span class="input-group-text">R$</span>
+						</div>
+						<div>
+							<label>Codigo de barras</label>
+							<input type="text"  class="form-control" name="codigo_barra">
+						</div>
+						<div>
+							<label>Classificação</label>
+							<select name="tipo" class="form-select" id="selecao">
+							
+								<option value="1">Ervas</option>
+								<option value="2">Temperos</option>
+								<option value="3">Especiarias</option>
+							</select>
+							<div class="d-grid gap-2 mt-3">
+									<button class="btn btn-primary">
+										Salvar
+									</button>
+							</div>
+							<?php if(isset($_GET['erro']) && $_GET['erro'] == 'cadastro_tempero'){?>
+							<small class="text-danger">Campos não preenchidos </small>
+						<?php }?>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

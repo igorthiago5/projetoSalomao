@@ -1,0 +1,51 @@
+<section  >
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-12">
+				<div class="caixa">
+					<h1>Para alterar selecione um usuário</h1>
+					<select class="form-select" id="selecao_usuario" onclick="addForm()" >
+						<option value="1">Selecionar usuario</option>
+
+						<?php 
+
+						foreach($this->view->usuario as $usuario ){?>
+						<option value="<?= $usuario['id_usuario']?>"><?= $usuario['nome_usuario'] ?></option>
+					<?php } ?>
+					
+					</select>
+					<hr>
+					<div id="div_form">
+					<!-- <form action="/edit?acao=atualizar" method="POST"  >
+						<div>
+							<label>Nome</label>
+							<input type="text" name="nome" class="form-control" id="nome">
+						</div>
+						<div>
+							<label>Email</label>
+							<input type="text" name="cnpj" class="form-control" id="email" >
+						</div>
+						<div>
+							<label>Senha</label>
+							<input type="tex"  class="form-control" name="senha" id="senha" >
+						</div>
+						<div>
+							<label>Status</label>
+							<select class="form-select" id="selecao_status" >
+								<option>Admin</option>
+								<option>Funcionario</option>
+							</select>
+						</div>
+						
+						<div class="d-grid gap-2 mt-3"onmouseenter="desabilitarDiv()" >
+							<button type="submit" class="btn btn-primary" id="botao" > 
+								Atualizar
+							</button>
+						</div>
+						
+					</form> -->
+				</div>
+				</div>
+		</div>
+	</div>
+</section>
