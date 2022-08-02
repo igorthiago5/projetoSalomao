@@ -1,32 +1,34 @@
-function desabilitarDiv()
+function getValue( valor )
 {
-
 	let selecao = document.getElementById('selecao_usuario')
- 	let valor = selecao.options[selecao.selectedIndex].value
- 	let nome = document.getElementById('nome').disabled  = true
- 	let email = document.getElementById('email').disabled  = true
- 	let senha = document.getElementById('senha').disabled  = true
- 	let status = document.getElementById('status').disabled  = true
- 	let selecao_status = document.getElementById('selecao_status').disabled  = true
- 	let botao = document.getElementById('botao').disabled  = true
+	return valor = selecao.options[selecao.selectedIndex].value
 
-	 if(valor  > 1){
-	 	nome = document.getElementById('nome').disabled  = false
-	 	email = document.getElementById('email').disabled  = false
- 	 	senha = document.getElementById('senha').disabled  = false
- 	 	status = document.getElementById('status').disabled  = false
- 	 	selecao_status = document.getElementById('selecao_status').disabled  = false
- 	 	botao = document.getElementById('botao').disabled  = false
- 	 	
-	 }
+
+}
+function getNome(valor)
+{
+	let nome = document.getElementById('selecao_usuario')
+	return valor = nome.options[nome.selectedIndex].text
+	
 }
 function addForm()
 {
+	
+
+
 	let div = document.getElementById('div_form')
 	let form = document.createElement('form');
 	form.action = "/edit?acao=atualizar"
 	form.method = "POST"
 	form.id = "form"
+
+	let id = document.createElement('input')
+	id.type = "text"
+	id.name = "id_atual"
+	id.disabled = "true"
+	id.className = "form-control mt-3"
+	id.value = this.getValue()
+
 
 
 	let nome = document.createElement('input')
@@ -35,7 +37,8 @@ function addForm()
 	nome.placeholder = "nome"
 	nome.name = "nome"
 	nome.className = "form-control mt-3"
-	nome.value= "nome"
+	nome.value = this.getNome()
+	
 
 	let email = document.createElement('input')
 	email.id = "email"
@@ -55,6 +58,7 @@ function addForm()
 
 	let confirmar_senha = document.createElement('input')
 	confirmar_senha.id= "senha2"
+	confirmar_senha.type = "password"
 	confirmar_senha.name = "confirmar_senha"
 	confirmar_senha.placeholder ="Confirme sua senha"
 	confirmar_senha.className = "form-control mt-3"
@@ -66,11 +70,11 @@ function addForm()
 	selecao.className = "form-select"
 
 	let option1 = document.createElement('option')
-	option1.value = "admin"
+	option1.value = "1"
 	option1.innerHTML = "Admin"
 
 	let option2 = document.createElement('option')
-	option2.value = "funcionario"
+	option2.value = "2"
 	option2.innerHTML = "funcionario"
 	
 
@@ -82,8 +86,9 @@ function addForm()
 	botao.id ="btn-atualizar"
 	botao.className = "btn btn-primary mt-3"
 	botao.innerHTML = "Atualizar"
+	botao.type = "submit"
 
-	
+	form.appendChild(id)
 	form.appendChild(nome)
 	form.appendChild(email)
 	form.appendChild(senha)
@@ -96,7 +101,7 @@ function addForm()
 	selecao.appendChild(option2)
 	div.appendChild(form)
 	let form_cont = document.querySelectorAll('form')
-	console.log(form_cont.length)
+	
 	if(form_cont.length >  1){
 		let form_remove = document.getElementById('form')
 		form_remove.parentNode.removeChild(form_remove)

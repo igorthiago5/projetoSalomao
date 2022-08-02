@@ -1,19 +1,24 @@
 <section  >
+
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-12">
 				<div class="caixa">
 					<h1>Para alterar selecione um usuário</h1>
-					<select class="form-select" id="selecao_usuario" onclick="addForm()" >
-						<option value="1">Selecionar usuario</option>
+				
+					<select class="form-select" id="selecao_usuario" onclick="addForm(
+
+					)" name="update_usuaio">
+						
 
 						<?php 
 
 						foreach($this->view->usuario as $usuario ){?>
-						<option value="<?= $usuario['id_usuario']?>"><?= $usuario['nome_usuario'] ?></option>
+						<option value="<?= $usuario['id_usuario']?>" onclick="getValue(this.value),getNome(this.value)"><?= $usuario['nome_usuario'] ?></option>
 					<?php } ?>
 					
 					</select>
+					
 					<hr>
 					<div id="div_form">
 					<!-- <form action="/edit?acao=atualizar" method="POST"  >

@@ -16,12 +16,22 @@ class EditController extends Action
 		
 		$usuario = Container::getModel('Usuario');
 		$this->view->usuario = $usuario->getFuncionarios();
+		
 		$acao = isset($_GET['acao']) ? $_GET['acao'] : '';
 		if($acao == 'atualizar'){
-			echo 'ola';
+
+			
+			
+			$usuario->__set('nome',$_POST['nome']);
+			$usuario->__set('email',$_POST['email']);
+			$usuario->__set('senha',$_POST['senha']);
+			$usuario->__set('status',$_POST['status']);
+			$usuario->__set('id',$_POST['id_atual']);
+			$usuario->update();
 
 		}
 		$this->render('pagina_edit','layout');
+
 
 
 	}

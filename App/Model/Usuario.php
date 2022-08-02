@@ -68,7 +68,7 @@ class Usuario extends Model
 	}
 	public function getFuncionarios()
 	{
-		$query = "SELECT id_usuario, nome_usuario,email,id_usuario,t1.nome_status FROM usuario t
+		$query = "SELECT id_usuario, nome_usuario,email,t1.nome_status FROM usuario t
 		inner join usuario_status t1 on t.id_status = t1.id_status";
 		$stmt = $this->conexao->prepare($query);
 		$stmt->execute();
@@ -94,6 +94,28 @@ class Usuario extends Model
 		}
 		return $this;
 	}
+	
+	public function getAll()
+	{
+		$query ="SELECT nome_usuario,email,id_usuario,id_status,senha1 FROM usuario ";
+		$stmt = $this->conexao->prepare($query);
+		$stmt->execute();
+		$dados = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+		return $dados;
+	}
+	public function update()
+	{
+		$query = "UPDATE usuario SET nome_usuario=:nome,email = :email,id_status = :status, senha1 = :senha WHERE nome_usuario = :nome";
+		$stmt = $this->conexao->prepare($query);
+		$stmt->bindValue(':nome',$this->__get('nome'));
+		$stmt->bindValue(':status',$this->__get('status'));
+		$stmt->bindValue(':senha',$this->__get('senha'));
+		$stmt->bindValue(':email',$this->__get('email'));
+		$stmt->bindValue(':id',$this->__get('id'));
+		$stmt->execute();
+
+	}
+	
 }
 
 ?>
