@@ -58,14 +58,16 @@ class indexController extends Action
 		$usuario = Container::getModel('Usuario');
 		$tempero = Container::getModel('Tempero');
 		$empresa = Container::getModel('Empresa');
+		$produto = Container::getModel('Produto');
 		$this->view->usuario  = $usuario->getFuncionarios();
 		$this->view->tempero = $tempero->listarTemperos();
 		$this->view->empresa = $empresa->listarEmpresas();
-		
+		$this->view->getVendas = $produto->getVendas();
 		$this->render('pagina_vender','layout');
 		$this->view->venda = isset($_GET['venda']) ? $_GET['venda'] : '';
 		$this->view->erro = isset($_GET['erro']) ? $_GET['erro'] :'';
-
+		
+		
 	
 
 		
@@ -76,7 +78,7 @@ class indexController extends Action
 	public function dashboard()
 	{
 		$this->validarAutenticao();
-			$this->render('pagina_dashboard','layout');
+			$this->render('pagina_dashboard','layout_dashboard');
 		
 
 	}
@@ -217,6 +219,7 @@ class indexController extends Action
 
 		
 	}
+	
 
 	
 

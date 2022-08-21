@@ -43,6 +43,18 @@ class Produto extends Model
 		}
 		return $validar;
 	}
+	public function getVendas()
+	{
+		$query = "  SELECT t.nome_tempero,v.qtd,e.nome_emrpesa, u.nome_usuario
+					FROM venda v
+					left join empresa e on v.id_empresa = e.id_empresa
+					left join usuario u on u.id_usuario = v.id_usuario
+					left join tempero t on t.id_tempero = v.id_tempero";
+		$stmt = $this->conexao->prepare($query);
+		$stmt->execute();
+		return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+	}
+	
 }
 
 

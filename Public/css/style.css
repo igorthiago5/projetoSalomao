@@ -86,3 +86,47 @@ img{
 .li{
 	list-style: none;
 }
+.coluna-dashboard{
+	margin-top: -5px;
+	width: auto;
+	height: 800px;
+	color: white;
+	background: #2C4762;
+	box-shadow: 10px 10px 10px black;
+
+
+}
+.li-1{
+	list-style: none;
+	margin-left: -30px;
+	margin-top: 5px;
+	padding: 5px;
+	width: auto;
+}
+.a{
+	text-decoration: none;
+	color: white;
+
+}
+.a:hover{
+	text-decoration: none;
+	color: white;
+	border-left:10px solid blue
+
+
+}
+
+.painel{
+	
+	border:1px solid red;
+	border-radius: 15px;
+	width: 95%;
+
+	float: left;
+	margin-left: 10px;
+	margin-right: 5px;
+	margin-top: 10px;
+
+
+}
+

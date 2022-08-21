@@ -11,7 +11,9 @@ function getNome(valor)
 	return valor = nome.options[nome.selectedIndex].text
 	
 }
-function addForm()
+
+
+function addForm_E_ConfirmarSenha()
 {
 	
 
@@ -23,10 +25,12 @@ function addForm()
 	form.id = "form"
 
 	let id = document.createElement('input')
+	
+	id.id="id_usuario"
 	id.type = "text"
 	id.name = "id_atual"
-	id.disabled = "true"
-	id.className = "form-control mt-3"
+	id.enabled = "true"
+	id.className = "form-control mt-3 "
 	id.value = this.getValue()
 
 
@@ -43,10 +47,10 @@ function addForm()
 	let email = document.createElement('input')
 	email.id = "email"
 	email.type = "email"
-	email.placeholder = "email"
+	
 	email.name = "email"
 	email.className = "form-control mt-3"
-	email.value= "email"
+	email.placeholder= "Digite um novo email"
 
 	let senha = document.createElement('input')
 	senha.id = "senha"
@@ -54,6 +58,7 @@ function addForm()
 	senha.type = "password"
 	senha.placeholder ="senha"
 	senha.className = "form-control mt-3"
+	senha.required ="true"
 
 
 	let confirmar_senha = document.createElement('input')
@@ -62,6 +67,7 @@ function addForm()
 	confirmar_senha.name = "confirmar_senha"
 	confirmar_senha.placeholder ="Confirme sua senha"
 	confirmar_senha.className = "form-control mt-3"
+	confirmar_senha.required ="true"
 
 	let selecao = document.createElement('select')
 	let txt = "Admin"
@@ -88,6 +94,7 @@ function addForm()
 	botao.innerHTML = "Atualizar"
 	botao.type = "submit"
 
+
 	form.appendChild(id)
 	form.appendChild(nome)
 	form.appendChild(email)
@@ -107,5 +114,20 @@ function addForm()
 		form_remove.parentNode.removeChild(form_remove)
 	}
 	
-
+}
+function ajax(pagina)
+{
+	let div = document.getElementById('div')
+	let xml = new XMLHttpRequest()
+	console.log(xml)
+	xml.open('GET', 'pagina.php');
+	xml.onreadystatechange = ()=>{
+		if(xml.readyState == 4 && xml.status== 200){
+			console.log(xml.responseText)
+		}
+		else{
+			console.log(xml.responseText)
+		}
+	}
+	xml.send()
 }

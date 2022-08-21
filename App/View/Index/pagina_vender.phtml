@@ -60,4 +60,36 @@
 			</div>
 		</div>
 	</div>
-</section>''
+</section>
+
+<section >
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="caixa">
+					<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Empresa</th>
+      <th scope="col">Produto</th>
+      <th scope="col">Qtd</th>
+    </tr>
+  </thead>
+  <tbody>
+  	<?php foreach($this->view->getVendas as $vendas){?>
+    <tr>
+      <th scope="row"><?=$i = 1+$i ?></th>
+      <td><?= $vendas['nome_emrpesa']?> </td>
+      <td><?= $vendas['nome_tempero']?></td>
+      <td><?= $vendas['qtd']?></td>
+    </tr>
+<?php } ?>
+    
+  </tbody>
+</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

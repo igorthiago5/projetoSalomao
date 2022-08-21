@@ -13,25 +13,40 @@ class EditController extends Action
 	public function edit()
 	{
 		$this->validarAutenticao();
-		
+		$dados = null;
 		$usuario = Container::getModel('Usuario');
-		$this->view->usuario = $usuario->getFuncionarios();
-		
-		$acao = isset($_GET['acao']) ? $_GET['acao'] : '';
-		if($acao == 'atualizar'){
+		$this->view->dados_atualizados = $usuario->getFuncionarios();
+		print_r($this->view->dados_atualizados['email']);
 
 			
+		$acao = isset($_GET['acao']) ? $_GET['acao'] : '';
+		$this->view->acao = $acao;
+		if($acao == 'atualizar'){
 			
+			$confirmar_senha = $_POST['confirmar_senha'];
+			$usuario->__set('id',$_POST['id_atual']);
 			$usuario->__set('nome',$_POST['nome']);
 			$usuario->__set('email',$_POST['email']);
 			$usuario->__set('senha',$_POST['senha']);
 			$usuario->__set('status',$_POST['status']);
-			$usuario->__set('id',$_POST['id_atual']);
-			$usuario->update();
+			if($usuario->validarSenha($confirmar_senha) == true && count($usuario->certificarUsuario()) == 0){
+				// print_r($usuario->validarSenha($confirmar_senha));
+				// print_r(count($usuario->certificarUsuario()));
+			 $usuario->update();
+			$this->view->dados_atualizados = $usuario->getFuncionarios();
 
+				
+			
+			}	
+			else{
+				
+				header('location:edit?acao=erro');
+				
+			}
 		}
+		
 		$this->render('pagina_edit','layout');
-
+		
 
 
 	}
@@ -44,6 +59,7 @@ class EditController extends Action
 	
 		}
 	}
+
 
 	
 }

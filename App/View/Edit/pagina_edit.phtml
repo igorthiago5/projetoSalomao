@@ -6,15 +6,15 @@
 				<div class="caixa">
 					<h1>Para alterar selecione um usuário</h1>
 				
-					<select class="form-select" id="selecao_usuario" onclick="addForm(
+					<select class="form-select" id="selecao_usuario" onclick="addForm_E_ConfirmarSenha(
 
 					)" name="update_usuaio">
 						
 
 						<?php 
 
-						foreach($this->view->usuario as $usuario ){?>
-						<option value="<?= $usuario['id_usuario']?>" onclick="getValue(this.value),getNome(this.value)"><?= $usuario['nome_usuario'] ?></option>
+						foreach($this->view->dados_atualizados as $usuario ){?>
+						<option value="<?= $usuario['id_usuario']?>" onclick="getValue(this.value),getNome(this.value)"><?= $usuario['nome_usuario']?></option>
 					<?php } ?>
 					
 					</select>
@@ -49,6 +49,10 @@
 						</div>
 						
 					</form> -->
+					 <?php if($this->view->acao == 'erro'){?>
+
+						<small class="text-danger">Erro ao atualizar</small>
+					<?php }?> 
 				</div>
 				</div>
 		</div>
